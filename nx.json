@@ -1,0 +1,40 @@
+{
+  "npmScope": "bbh",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "MjdhZjRjM2YtY2U2NS00YjRlLWEzMmUtNzZlZmFjNDM1MGM3fHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "bbh-admin": {
+      "tags": []
+    },
+    "bbh-admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["bbh-admin"]
+    },
+    "bbh-api": {
+      "tags": []
+    }
+  }
+}

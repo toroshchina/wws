@@ -1,0 +1,34 @@
+.paperBlock {
+  position: relative;
+  padding-bottom: 1px;
+}
+
+.tableBlock {
+  margin-top: 20px !important;
+  margin-bottom: 50px !important;
+  height: calc(100vh - 255px) !important;
+  .rowLogo {
+    width: 100px;
+    height: 80px;
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
+.tablePaginationBlock {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  background: white;
+  bottom: 0;
+}
+
+.headerBlock {
+  display: flex;
+}
+
+.titleBlock {
+  margin-top: 5px !important;
+  margin-right: 20px !important;
+}

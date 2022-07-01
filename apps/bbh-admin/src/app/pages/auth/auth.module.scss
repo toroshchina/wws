@@ -1,0 +1,28 @@
+.auth {
+  height: 100vh;
+}
+.image {
+  background-image: url(/assets/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.name {
+  padding-top: 50px;
+  font-weight: bold!important;
+}
+.loginForm {
+  justify-content: center;
+  min-height: 90vh;
+}
+.buttonBlock {
+  width: 100%;
+}
+.rightBack {
+  background: #f5f5f5!important;
+}
+.loginBackground {
+  justify-content: center;
+  min-height: 30vh;
+  padding: 50px;
+}

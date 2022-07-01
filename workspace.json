@@ -1,0 +1,177 @@
+{
+  "version": 2,
+  "projects": {
+    "bbh-admin": {
+      "root": "apps/bbh-admin",
+      "sourceRoot": "apps/bbh-admin/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/bbh-admin",
+            "index": "apps/bbh-admin/src/index.html",
+            "main": "apps/bbh-admin/src/main.tsx",
+            "polyfills": "apps/bbh-admin/src/polyfills.ts",
+            "tsConfig": "apps/bbh-admin/tsconfig.app.json",
+            "assets": [
+              "apps/bbh-admin/src/favicon.ico",
+              "apps/bbh-admin/src/assets"
+            ],
+            "styles": ["apps/bbh-admin/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/bbh-admin/src/environments/environment.ts",
+                  "with": "apps/bbh-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "bbh-admin:build",
+            "proxyConfig": "apps/bbh-admin/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "bbh-admin:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/bbh-admin/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/bbh-admin"],
+          "options": {
+            "jestConfig": "apps/bbh-admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "bbh-admin-e2e": {
+      "root": "apps/bbh-admin-e2e",
+      "sourceRoot": "apps/bbh-admin-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/bbh-admin-e2e/cypress.json",
+            "tsConfig": "apps/bbh-admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "bbh-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bbh-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/bbh-admin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "bbh-api": {
+      "root": "apps/bbh-api",
+      "sourceRoot": "apps/bbh-api/src",
+      "projectType": "application",
+      "prefix": "bbh-api",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/bbh-api",
+            "main": "apps/bbh-api/src/main.ts",
+            "tsConfig": "apps/bbh-api/tsconfig.app.json",
+            "assets": ["apps/bbh-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/bbh-api/src/environments/environment.ts",
+                  "with": "apps/bbh-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "bbh-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/bbh-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/bbh-api"],
+          "options": {
+            "jestConfig": "apps/bbh-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "bbh-admin"
+}

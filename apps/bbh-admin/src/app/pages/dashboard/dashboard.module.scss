@@ -1,0 +1,55 @@
+.toolbar {
+  padding-right: 24px;
+}
+
+.toolbarIcon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+}
+
+.appBar {
+  z-index: 1201!important;
+  transition: 0.3s;
+}
+
+.appBarShift {
+  margin-left: 240px!important;
+  width: calc(100% - 240px)!important;
+  transition: 0.3s;
+}
+
+.menuButton {
+  margin-right: 12px !important;
+}
+
+.menuButtonHidden {
+  display: none;
+}
+
+.logo {
+  flex-grow: 1;
+}
+
+.drawerPaper {
+  position: relative;
+  white-space: nowrap;
+  width: 240px;
+  transition: 0.3;
+}
+
+.drawerPaperClose {
+  overflow-x: hidden;
+  transition: 0.3;
+  width: 71px;
+}
+
+.dashPaper {
+  height: calc(100vh - 180px);
+  padding: 25px;
+}
+
+.gridBlock {
+  padding-top: 20px;
+}
